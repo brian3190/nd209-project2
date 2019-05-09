@@ -2,13 +2,26 @@
 #include "ball_chaser/DriveToTarget.h"
 #include <sensor_msgs/Image.h>
 
+using namespace std;
+
 // Define a global client that can request services
 ros::ServiceClient client;
 
 // This function calls the command_robot service to drive the robot in the specified direction
 void drive_robot(float lin_x, float ang_z)
 {
-    // TODO: Request a service and pass the velocities to it to drive the robot
+
+    ROS_INFO_STREAM("Driving the robot");
+
+    // Request a service and pass the velocities to it to drive the robot
+    ball_chaser::DriveToTarget srv;
+    srv.request.linear_x = lin_x;
+    srv.request.angular_z = ang_z;
+
+    // Throws error if fail to call drive service
+    if (!client.call(srv))
+        ROS_ERROR("Failed to call service command_robot");
+
     
 }
 
@@ -18,10 +31,31 @@ void process_image_callback(const sensor_msgs::Image img)
 
     int white_pixel = 255;
 
-    // TODO: Loop through each pixel in the image and check if there's a bright white one
+    // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
+    for (int i = 0; i < img.height * img.step; i++){
+        if (img.data[i] == white_pixel){
+            string position;
+            if (i < (img.width / 3) || (i % img.width) < (img.width / 3)){
+	        position = "left";
+		drive_robot(1.0, -0.3);
+	    } 
+	    else if (i < (2 * img.width / 3) || (i % img.width) < (2 * img.width / 3)){
+	  	position = "center";
+		drive_robot(1.0, 0.0);
+            } 
+	    else  {
+		position = "right";
+		drive_robot(1.0, 0.3);
+	    }
+	    break;
+        }
+	else {
+	    drive_robot(0.0, 0.0);
+	}
+    }       
 }
 
 int main(int argc, char** argv)

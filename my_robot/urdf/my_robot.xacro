@@ -37,6 +37,9 @@
       <geometry>
         <box size=".6 .4 .1"/>
       </geometry>
+      <material name='chassis_color'>
+  	<color rgba="0.3 .5 0.3 0.3"/>
+      </material>
     </visual>
 
     <collision name='back_caster_collision'>

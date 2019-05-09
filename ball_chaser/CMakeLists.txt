@@ -55,9 +55,8 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## Generate services in the 'srv' folder
 add_service_files(
-  DriveToTarget.srv
-#   Service1.srv
-#   Service2.srv
+    FILES
+    DriveToTarget.srv
 )
 
 ## Generate actions in the 'action' folder
@@ -68,10 +67,10 @@ add_service_files(
 # )
 
 ## Generate added messages and services with any dependencies listed here
-# generate_messages(
-#   DEPENDENCIES
-#   std_msgs  # Or other packages containing msgs
-# )
+generate_messages(
+   DEPENDENCIES
+   std_msgs  # Or other packages containing msgs
+)
 
 ################################################
 ## Declare ROS dynamic reconfigure parameters ##
@@ -198,9 +197,9 @@ include_directories(
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
 
-add_executable(ball_chaser src/drive_bot.cpp)
-target_link_libraries(ball_chaser ${catkin_LIBRARIES})
-add_dependencies(ball_chaser ball_chaser_generate_messages_cpp)
+add_executable(drive_bot src/drive_bot.cpp)
+target_link_libraries(drive_bot ${catkin_LIBRARIES})
+add_dependencies(drive_bot ball_chaser_generate_messages_cpp)
 
 add_executable(process_images src/process_images.cpp)
 target_link_libraries(process_images ${catkin_LIBRARIES})
