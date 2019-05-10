@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Send urdf to param server -->
-  <param command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/my_robot.xacro'" name="robot_description"/>
+  <param command="$(find xacro)/xacro --inorder '$(find my_robot)/urdf/cam_robot.xacro'" name="robot_description"/>
 
   <!-- Send fake joint values -->
   <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">

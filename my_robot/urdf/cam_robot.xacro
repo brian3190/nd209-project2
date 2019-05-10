@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 
-<robot name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="cam_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find my_robot)/urdf/my_robot.gazebo"/>
+  <xacro:include filename="$(find my_robot)/urdf/cam_robot.gazebo"/>
 
   <link name="robot_footprint"></link>
 
@@ -45,7 +45,7 @@
     <collision name='back_caster_collision'>
       <origin xyz="-0.15 0 -0.05" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.0499"/>
+        <sphere radius="0.05"/>
       </geometry>
     </collision>
 
@@ -59,7 +59,7 @@
     <collision name='front_caster_collision'>
       <origin xyz="0.15 0 -0.05" rpy="0 0 0"/>
       <geometry>
-        <sphere radius="0.0499"/>
+        <sphere radius="0.05"/>
       </geometry>
     </collision>
     
@@ -225,4 +225,4 @@
 
 
 
-   
+  
