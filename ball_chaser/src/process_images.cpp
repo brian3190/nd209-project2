@@ -26,9 +26,10 @@ void drive_robot(float lin_x, float ang_z)
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 { 
-    vecetor<int> rgb;
+    vector<int> rgb;
     vector<vector<int>> vec;
-    vector<vec> sorted;
+    vector<vector<vector<int>>> sorted;
+    vector<int> white {255, 255, 255};
     // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
@@ -49,7 +50,7 @@ void process_image_callback(const sensor_msgs::Image img)
     // Loop through sorted vector to find white pixel 
     for (int i = 0; i < img.height; i++){
 	for (int j = 0; j < img.width; j++){
-            if (sorted[i][j] == {255, 255, 255}){
+            if (sorted[i][j] == white){
                 string position;
                 if (j < (img.width / 3) || (j % img.width) < (img.width / 3)){
 	            position = "left";
