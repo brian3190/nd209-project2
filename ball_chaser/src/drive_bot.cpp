@@ -15,20 +15,18 @@ bool handle_drive_request(ball_chaser::DriveToTarget::Request& req, ball_chaser:
 
     ROS_INFO("DriveToTargetRequest Received - linear_x:%1.2f, angular_z:%1.2f", (float)req.linear_x, (float)req.angular_z);
   
-    std::vector<float> requested_vel = { req.linear_x, req.angular_z };
-
     // Create a motor_command object of type geometry_msgs::Twist
-    geometry_msgs::Twist motor_command;
+    geometry_msgs::Twist motor_cmd;
 
     // Publish wheel velocities
-    motor_command.linear.x = requested_vel[0];
-    motor_command.angular.z = requested_vel[1];
+    motor_cmd.linear.x = req.linear_x;
+    motor_cmd.angular.z = req.angular_z;
         
     // Publish angles to drive the robot
-    motor_command_publisher.publish(motor_command);
+    motor_command_publisher.publish(motor_cmd);
 
     // Return a response message
-    res.msg_feedback = "Move linear distance - linear_x: " + std::to_string(requested_vel[0]) + " ,Angular velocity - angular_z: " + std::to_string(requested_vel[1]);
+    res.msg_feedback = "Linear velocity_x: " + std::to_string(motor_cmd.linear_x) + " ,angular velocity - angular_z: " + std::to_string(motor_cmd.angular_z);
     ROS_INFO_STREAM(res.msg_feedback);
 
     return true;

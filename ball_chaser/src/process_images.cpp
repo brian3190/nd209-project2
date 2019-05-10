@@ -20,41 +20,55 @@ void drive_robot(float lin_x, float ang_z)
 
     // Throws error if fail to call drive service
     if (!client.call(srv))
-        ROS_ERROR("Failed to call service command_robot");
-
-    
+        ROS_ERROR("Failed to call service command_robot");    
 }
 
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
-{
-
-    int white_pixel = 255;
-
+{ 
+    vecetor<int> rgb;
+    vector<vector<int>> vec;
+    vector<vec> sorted;
     // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
-    // Request a stop when there's no white ball seen by the camera
-    for (int i = 0; i < img.height * img.step; i++){
-        if (img.data[i] == white_pixel){
-            string position;
-            if (i < (img.width / 3) || (i % img.width) < (img.width / 3)){
-	        position = "left";
-		drive_robot(1.0, -0.3);
-	    } 
-	    else if (i < (2 * img.width / 3) || (i % img.width) < (2 * img.width / 3)){
-	  	position = "center";
-		drive_robot(1.0, 0.0);
-            } 
-	    else  {
-		position = "right";
-		drive_robot(1.0, 0.3);
+    // Request a stop when there's no white ball seen by the camerai
+
+    // Loop through image data to sort RGB values into vectors
+    for (int i = 0; i < img.height; i++){
+	for (int j = 0; j < 3 * img.width; i++){ 
+ 	    rgb.push_back(img.data[i][j]);
+	    if (rgb.size() == 3){
+		vec.insert(vec.end(), rgb);
+		rgb = {};
 	    }
-	    break;
-        }
-	else {
-	    drive_robot(0.0, 0.0);
 	}
+	sorted.insert(sorted.end(), vec);
+    }
+   
+    // Loop through sorted vector to find white pixel 
+    for (int i = 0; i < img.height; i++){
+	for (int j = 0; j < img.width; j++){
+            if (sorted[i][j] == {255, 255, 255}){
+                string position;
+                if (j < (img.width / 3) || (j % img.width) < (img.width / 3)){
+	            position = "left";
+	    	    drive_robot(1.0, -0.3);
+	        } 
+	        else if (j < (2 * img.width / 3) || (j % img.width) < (2 * img.width / 3)){
+                    position = "center";
+		    drive_robot(1.0, 0.0);
+                } 
+	        else{
+		    position = "right";
+		    drive_robot(1.0, 0.3);
+	        }
+	        break;
+            }
+	    else {
+	        drive_robot(0.0, 0.0);
+	    }
+        }
     }       
 }
 
