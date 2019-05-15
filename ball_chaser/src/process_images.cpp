@@ -26,37 +26,22 @@ void drive_robot(float lin_x, float ang_z)
 // This callback function continuously executes and reads the image data
 void process_image_callback(const sensor_msgs::Image img)
 { 
-    vector<int> rgb;
-    vector<vector<int>> vec;
-    vector<vector<vector<int>>> sorted;
-    vector<int> white {255, 255, 255};
+    
     // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camerai
-
-    // Loop through image data to sort RGB values into vectors
-    for (int i = 0; i < img.height; i++){
-	for (int j = 0; j < 3 * img.width; i++){ 
- 	    rgb.push_back(img.data[i][j]);
-	    if (rgb.size() == 3){
-		vec.insert(vec.end(), rgb);
-		rgb = {};
-	    }
-	}
-	sorted.insert(sorted.end(), vec);
-    }
    
-    // Loop through sorted vector to find white pixel 
-    for (int i = 0; i < img.height; i++){
-	for (int j = 0; j < img.width; j++){
-            if (sorted[i][j] == white){
-                string position;
-                if (j < (img.width / 3) || (j % img.width) < (img.width / 3)){
+    // Comparing R,G,B values to find white pixel 
+    for (int i = 0; i < img.height; ++i){
+	for (int j = 0; j < img.width; ++j){
+            if ((img.data[i + j*3 + 0] == 255) && (img.data[i + j*3 + 1] == 255) && (img.data[i + j*3 + 2] == 255)) {
+                string position; 
+                if (j < (img.width / 3)) {
 	            position = "left";
 	    	    drive_robot(1.0, -0.3);
 	        } 
-	        else if (j < (2 * img.width / 3) || (j % img.width) < (2 * img.width / 3)){
+	        else if (j < (2 * img.width / 3)) {
                     position = "center";
 		    drive_robot(1.0, 0.0);
                 } 
