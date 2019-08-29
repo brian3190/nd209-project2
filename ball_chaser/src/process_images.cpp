@@ -1,6 +1,7 @@
 #include "ros/ros.h"
 #include "ball_chaser/DriveToTarget.h"
 #include <sensor_msgs/Image.h>
+#include <iostream>
 
 using namespace std;
 
@@ -38,20 +39,23 @@ void process_image_callback(const sensor_msgs::Image img)
                 string position; 
                 if (j < (img.width / 3)) {
 	            position = "left";
-	    	    drive_robot(1.0, -0.3);
+		    ROS_INFO_STREAM("Left");
+	    	    drive_robot(5.0, -1.0);
 	        } 
 	        else if (j < (2 * img.width / 3)) {
                     position = "center";
-		    drive_robot(1.0, 0.0);
+		    ROS_INFO_STREAM("Center");
+		    drive_robot(5.0, 0.0);
                 } 
 	        else{
 		    position = "right";
-		    drive_robot(1.0, 0.3);
+		    ROS_INFO_STREAM("Right");
+		    drive_robot(5.0, 1.0);
 	        }
-	        break;
             }
 	    else {
 	        drive_robot(0.0, 0.0);
+		ROS_INFO_STREAM("Stopped");
 	    }
         }
     }       
