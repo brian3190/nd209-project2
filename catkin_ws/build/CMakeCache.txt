@@ -244,6 +244,9 @@ RT_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/librt.so
 //Enable debian style python package layout
 SETUPTOOLS_DEB_LAYOUT:BOOL=ON
 
+//Name of the computer/site where compile is being run
+SITE:STRING=ff63a2cde917
+
 //LSB Distrib tag
 UBUNTU:BOOL=TRUE
 
@@ -348,7 +351,7 @@ gtest_main_LIB_DEPENDS:STATIC=general;-lpthread;general;gtest;
 hardware_interface_DIR:PATH=/opt/ros/kinetic/share/hardware_interface/cmake
 
 //Path to a library.
-lib:FILEPATH=/opt/ros/kinetic/lib/librospack.so
+lib:FILEPATH=/opt/ros/kinetic/lib/libxmlrpcpp.so
 
 //The directory containing a CMake configuration file for message_generation.
 message_generation_DIR:PATH=/opt/ros/kinetic/share/message_generation/cmake

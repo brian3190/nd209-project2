@@ -64,3 +64,22 @@ if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspeci
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python2.7/dist-packages" TYPE DIRECTORY FILES "/home/workspace/project2/catkin_ws/devel/lib/python2.7/dist-packages/ball_chaser")
 endif()
 
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/workspace/project2/catkin_ws/build/ball_chaser/catkin_generated/installspace/ball_chaser.pc")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ball_chaser/cmake" TYPE FILE FILES "/home/workspace/project2/catkin_ws/build/ball_chaser/catkin_generated/installspace/ball_chaser-msg-extras.cmake")
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ball_chaser/cmake" TYPE FILE FILES
+    "/home/workspace/project2/catkin_ws/build/ball_chaser/catkin_generated/installspace/ball_chaserConfig.cmake"
+    "/home/workspace/project2/catkin_ws/build/ball_chaser/catkin_generated/installspace/ball_chaserConfig-version.cmake"
+    )
+endif()
+
+if(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ball_chaser" TYPE FILE FILES "/home/workspace/project2/catkin_ws/src/ball_chaser/package.xml")
+endif()
+

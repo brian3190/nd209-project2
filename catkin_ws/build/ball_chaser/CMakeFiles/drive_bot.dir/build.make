@@ -90,35 +90,25 @@ drive_bot_EXTERNAL_OBJECTS =
 
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: ball_chaser/CMakeFiles/drive_bot.dir/src/drive_bot.cpp.o
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: ball_chaser/CMakeFiles/drive_bot.dir/build.make
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libcontroller_manager.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libroscpp.so
+/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_signals.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libroscpp_serialization.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libxmlrpcpp.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libtinyxml2.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libclass_loader.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/libPocoFoundation.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libdl.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/librosconsole.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/librosconsole_log4cxx.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/librosconsole_backend_interface.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/liblog4cxx.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_regex.so
+/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libxmlrpcpp.so
+/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libroscpp_serialization.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/librostime.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libcpp_common.so
+/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_system.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_thread.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_date_time.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libpthread.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libconsole_bridge.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/libroslib.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /opt/ros/kinetic/lib/librospack.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libpython2.7.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_program_options.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libboost_system.so
-/home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: /usr/lib/x86_64-linux-gnu/libtinyxml.so
 /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot: ball_chaser/CMakeFiles/drive_bot.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/workspace/project2/catkin_ws/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable /home/workspace/project2/catkin_ws/devel/lib/ball_chaser/drive_bot"
 	cd /home/workspace/project2/catkin_ws/build/ball_chaser && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/drive_bot.dir/link.txt --verbose=$(VERBOSE)

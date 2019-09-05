@@ -3,6 +3,6 @@ prefix=/home/workspace/project2/catkin_ws/install
 Name: ball_chaser
 Description: Description of ball_chaser
 Version: 0.0.0
-Cflags: 
+Cflags: -I/home/workspace/project2/catkin_ws/install/include
 Libs: -L/home/workspace/project2/catkin_ws/install/lib 
-Requires: 
+Requires: roscpp std_msgs message_runtime
